@@ -5,11 +5,11 @@ import (
 	"os"
 	"unicode"
 
-	"github.com/76creates/stickers/flexbox"
-	"github.com/76creates/stickers/table"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/gocarina/gocsv"
+	"github.com/jon4hz/stickers/flexbox"
+	"github.com/jon4hz/stickers/table"
 )
 
 var selectedValue string = "\nselect something with spacebar or enter"

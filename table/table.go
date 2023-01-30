@@ -10,8 +10,8 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/76creates/stickers/flexbox"
 	"github.com/charmbracelet/lipgloss"
+	"github.com/jon4hz/stickers/flexbox"
 )
 
 var (
