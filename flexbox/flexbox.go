@@ -91,6 +91,22 @@ func (r *FlexBox) GetRow(index int) *Row {
 	return nil
 }
 
+// GetCellByID returns the Cell with the given id if it exists.
+// note: forces the recalculation if found
+// returns nil if not found, if there are multiple cells with the same id
+// it will return the first one.
+func (r *FlexBox) GetCellByID(id string) *Cell {
+	for _, row := range r.rows {
+		for _, cell := range row.cells {
+			if cell.id == id {
+				r.setRecalculate()
+				return cell
+			}
+		}
+	}
+	return nil
+}
+
 // GetRowCopy returns a copy of the Row on the given index, if row
 // does not exist it will return nil. Copied row also gets copies of the
 // cells. This is useful when you need to get rows attribute without

@@ -92,6 +92,22 @@ func (r *HorizontalFlexBox) GetColumn(index int) *Column {
 	return nil
 }
 
+// GetCellByID returns the Cell with the given id if it exists.
+// note: forces the recalculation if found
+// returns nil if not found, if there are multiple cells with the same id
+// it will return the first one.
+func (r *HorizontalFlexBox) GetCellByID(id string) *Cell {
+	for _, column := range r.columns {
+		for _, cell := range column.cells {
+			if cell.id == id {
+				r.setRecalculate()
+				return cell
+			}
+		}
+	}
+	return nil
+}
+
 // GetColumnCopy returns a copy of the FlexBoxColumn on the given index, if column
 // does not exist it will return nil. Copied column also gets copies of the
 // cells. This is useful when you need to get columns attribute without
