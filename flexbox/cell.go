@@ -103,16 +103,16 @@ func (r *Cell) render(inherited ...lipgloss.Style) string {
 	}
 
 	s := r.GetStyle().
-		Width(r.getContentWidth()).MaxWidth(r.getMaxWidth()).
-		Height(r.getContentHeight()).MaxHeight(r.getMaxHeight())
+		Width(r.GetContentWidth()).MaxWidth(r.getMaxWidth()).
+		Height(r.GetContentHeight()).MaxHeight(r.getMaxHeight())
 	return s.Render(r.content)
 }
 
-func (r *Cell) getContentWidth() int {
+func (r *Cell) GetContentWidth() int {
 	return r.getMaxWidth() - r.getExtraWidth()
 }
 
-func (r *Cell) getContentHeight() int {
+func (r *Cell) GetContentHeight() int {
 	return r.getMaxHeight() - r.getExtraHeight()
 }
 
